@@ -49,7 +49,7 @@ const ASX_Transactions = sequelize.define(
                 transactions.forEach((transaction) => {
                     if (transaction.priceBought && transaction.priceSold) {
                         transaction.netPrice =
-                            transaction.priceSold - transaction.priceBought + 1;
+                            transaction.priceSold - transaction.priceBought;
                     }
                 });
             
@@ -58,7 +58,7 @@ const ASX_Transactions = sequelize.define(
                 transactions.forEach((transaction) => {
                     if (transaction.priceBought && transaction.priceSold) {
                         transaction.netPrice =
-                            transaction.priceSold - transaction.priceBought + 1;
+                            transaction.priceSold - transaction.priceBought;
                     }
                 });
             },

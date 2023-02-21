@@ -69,7 +69,7 @@ sequelize
         await Monthly_Spending.sync();
         await Accounts.sync();
         await User.sync();
-        //await ASX_Transactions.sync();
+        await ASX_Transactions.sync();
 
         // ASX_Transactions.destroy({ truncate: true });
         // ASX_Transactions.bulkCreate(ASX_TransactionsJSON);
@@ -86,9 +86,9 @@ sequelize
         //         where: {},
         //     }
         // );
-        //Monthly_Income.destroy({ truncate: true });
-        //Monthly_Income.bulkCreate(Monthly_IncomeJSON);
-        //Accounts.bulkCreate(AccountsJSON);
+        // Monthly_Income.destroy({ truncate: true });
+        // Monthly_Income.bulkCreate(Monthly_IncomeJSON);
+        // Accounts.bulkCreate(AccountsJSON);
     })
     .catch((err) => {
         console.error("Did not connect to the database:", err);

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { useGetASXTransactionQuery } from "state/api";
+import { useGetASXTransactionsQuery } from "state/api";
 import Header from "components/Header";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 
-const ASXTransaction = () => {
+const ASXTransactions = () => {
     const theme = useTheme();
 
     // values to be sent to the backend
@@ -15,7 +15,7 @@ const ASXTransaction = () => {
     const [search, setSearch] = useState("");
 
     const [searchInput, setSearchInput] = useState("");
-    const { data, isLoading } = useGetASXTransactionQuery({
+    const { data, isLoading } = useGetASXTransactionsQuery({
         page,
         pageSize,
         sort: JSON.stringify(sort),
@@ -26,13 +26,18 @@ const ASXTransaction = () => {
 
     const columns = [
         {
-            field: "_id",
+            field: "id",
             headerName: "ID",
             flex: 1,
         },
         {
-            field: "userId",
-            headerName: "User ID",
+            field: "dateBought",
+            headerName: "Date Bought",
+            flex: 1,
+        },
+        {
+            field: "dateSold",
+            headerName: "Date Sold",
             flex: 1,
         },
         {
@@ -41,15 +46,20 @@ const ASXTransaction = () => {
             flex: 1,
         },
         {
-            field: "products",
-            headerName: "# of Products",
-            flex: 0.5,
-            sortable: false,
-            renderCell: (params) => params.value.length,
+            field: "priceBought",
+            headerName: "Bought",
+            flex: 1,
+            renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
         },
         {
-            field: "cost",
-            headerName: "Cost",
+            field: "priceSold",
+            headerName: "Sold",
+            flex: 1,
+            renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
+        },
+        {
+            field: "netPrice",
+            headerName: "P/L",
             flex: 1,
             renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
         },
@@ -59,7 +69,7 @@ const ASXTransaction = () => {
         <Box m="1.5rem 2.5rem">
             <Header
                 title="ASXTransaction"
-                subtitle="Entire list of ASXTransaction"
+                subtitle="Entire list of ASXTransactions"
             />
             <Box
                 height="80vh"
@@ -115,4 +125,4 @@ const ASXTransaction = () => {
     );
 };
 
-export default ASXTransaction;
+export default ASXTransactions;
