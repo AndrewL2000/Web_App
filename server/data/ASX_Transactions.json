@@ -1,0 +1,354 @@
+[
+  {
+    "dateBought": "2020/07/02",
+    "dateSold": "2020/07/02",
+    "symbol": "DVL",
+    "priceBought": 577,
+    "priceSold": 368,
+    "netPrice": -209
+  },
+  {
+    "dateBought": "2020/07/02",
+    "dateSold": "2020/07/02",
+    "symbol": "DVL",
+    "priceBought": 560,
+    "priceSold": 490,
+    "netPrice": -70
+  },
+  {
+    "dateBought": "2020/07/02",
+    "dateSold": "2020/07/10",
+    "symbol": "CDY",
+    "priceBought": 846.28,
+    "priceSold": 989.6,
+    "netPrice": 143.32
+  },
+  {
+    "dateBought": "2020/07/07",
+    "dateSold": "2020/07/07",
+    "symbol": "ESK",
+    "priceBought": 557.16,
+    "priceSold": 557,
+    "netPrice": -0.16
+  },
+  {
+    "dateBought": "2020/06/15",
+    "dateSold": "2020/07/07",
+    "symbol": "NVX",
+    "priceBought": 560,
+    "priceSold": 515,
+    "netPrice": -45
+  },
+  {
+    "dateBought": "2020/07/09",
+    "dateSold": "2020/07/09",
+    "symbol": "RCE",
+    "priceBought": 547.99,
+    "priceSold": 534.8,
+    "netPrice": -13.19
+  },
+  {
+    "dateBought": "2020/07/09",
+    "dateSold": "2020/07/13",
+    "symbol": "HCT",
+    "priceBought": 519.94,
+    "priceSold": 409.28,
+    "netPrice": -110.66
+  },
+  {
+    "dateBought": "2020/07/10",
+    "dateSold": "2020/07/13",
+    "symbol": "DEG",
+    "priceBought": 511.54,
+    "priceSold": 407.95,
+    "netPrice": -103.59
+  },
+  {
+    "dateBought": "2020/07/13",
+    "dateSold": "2020/07/14",
+    "symbol": "FBR",
+    "priceBought": 535,
+    "priceSold": 466,
+    "netPrice": -69
+  },
+  {
+    "dateBought": "2020/06/03",
+    "dateSold": "2020/07/15",
+    "symbol": "WEB",
+    "priceBought": 1036.25,
+    "priceSold": 719.3,
+    "netPrice": -316.95
+  },
+  {
+    "dateBought": "2020/07/15",
+    "dateSold": "2020/07/15",
+    "symbol": "OPY",
+    "priceBought": 558.4,
+    "priceSold": 492.8,
+    "netPrice": -65.6
+  },
+  {
+    "dateBought": "2020/07/15",
+    "dateSold": "2020/07/15",
+    "symbol": "OPY",
+    "priceBought": 516.94,
+    "priceSold": 454.1,
+    "netPrice": -62.84
+  },
+  {
+    "dateBought": "2020/07/03",
+    "dateSold": "2020/07/16",
+    "symbol": "DCX",
+    "priceBought": 560,
+    "priceSold": 601.11,
+    "netPrice": 41.11
+  },
+  {
+    "dateBought": "2020/07/03",
+    "dateSold": "2020/07/29",
+    "symbol": "SUD",
+    "priceBought": 559.97,
+    "priceSold": 860.79,
+    "netPrice": 300.82
+  },
+  {
+    "dateBought": "2020/08/11",
+    "dateSold": "2020/08/14",
+    "symbol": "MSB",
+    "priceBought": 518.09,
+    "priceSold": 755.86,
+    "netPrice": 237.77
+  },
+  {
+    "dateBought": "2020/07/20",
+    "dateSold": "2020/08/19",
+    "symbol": "FBR",
+    "priceBought": 510.89,
+    "priceSold": 645.7,
+    "netPrice": 134.81
+  },
+  {
+    "dateBought": "2020/07/14",
+    "dateSold": "2020/08/19",
+    "symbol": "CRO",
+    "priceBought": 528,
+    "priceSold": 767,
+    "netPrice": 239
+  },
+  {
+    "dateBought": "2020/07/15",
+    "dateSold": "2020/08/24",
+    "symbol": "QFE",
+    "priceBought": 520,
+    "priceSold": 590,
+    "netPrice": 70
+  },
+  {
+    "dateBought": "2020/07/15",
+    "dateSold": "2020/08/24",
+    "symbol": "SWF",
+    "priceBought": 519.45,
+    "priceSold": 557.04,
+    "netPrice": 37.59
+  },
+  {
+    "dateBought": "2020/08/14",
+    "dateSold": "2020/09/09",
+    "symbol": "DW8",
+    "priceBought": 519.99,
+    "priceSold": 973.56,
+    "netPrice": 453.57
+  },
+  {
+    "dateBought": "2020/08/24",
+    "dateSold": "2020/12/03",
+    "symbol": "APV",
+    "priceBought": 519.99,
+    "priceSold": 937.12,
+    "netPrice": 417.13
+  },
+  {
+    "dateBought": "2020/07/10",
+    "dateSold": "2021/01/19",
+    "symbol": "HWK",
+    "priceBought": 514.99,
+    "priceSold": 821.74,
+    "netPrice": 306.75
+  },
+  {
+    "dateBought": "2020/10/02",
+    "dateSold": "2021/02/10",
+    "symbol": "BBUS",
+    "priceBought": 519.32,
+    "priceSold": 318.44,
+    "netPrice": -200.88
+  },
+  {
+    "dateBought": "2020/08/28",
+    "dateSold": "2021/03/10",
+    "symbol": "VOR",
+    "priceBought": 519.76,
+    "priceSold": 339.28,
+    "netPrice": -180.48
+  },
+  {
+    "dateBought": "2021/03/10",
+    "dateSold": "2021/03/19",
+    "symbol": "APX",
+    "priceBought": 794.35,
+    "priceSold": 796.4,
+    "netPrice": 2.05
+  },
+  {
+    "dateBought": "2020/06/15",
+    "dateSold": "2021/04/15",
+    "symbol": "Z1P",
+    "priceBought": 1143.4,
+    "priceSold": 1376.25,
+    "netPrice": 232.85
+  },
+  {
+    "dateBought": "2020/06/23",
+    "dateSold": "2021/04/20",
+    "symbol": "CGF",
+    "priceBought": 557.2,
+    "priceSold": 666.02,
+    "netPrice": 108.82
+  },
+  {
+    "dateBought": "2020/09/03",
+    "dateSold": "2021/04/27",
+    "symbol": "FBR",
+    "priceBought": 519.98,
+    "priceSold": 410.51,
+    "netPrice": -109.47
+  },
+  {
+    "dateBought": "2021/05/06",
+    "dateSold": "2021/05/07",
+    "symbol": "APX",
+    "priceBought": 699.7,
+    "priceSold": 689.96,
+    "netPrice": -9.74
+  },
+  {
+    "dateBought": "2020/07/29",
+    "dateSold": "2021/04/29",
+    "symbol": "CAN",
+    "priceBought": 809.68,
+    "priceSold": 773.36,
+    "netPrice": -36.32
+  },
+  {
+    "dateBought": "2021/01/11",
+    "dateSold": "2021/06/07",
+    "symbol": "ALU",
+    "priceBought": 502.48,
+    "priceSold": 572.88,
+    "netPrice": 70.4
+  },
+  {
+    "dateBought": "2021/02/17",
+    "dateSold": "2021/09/17",
+    "symbol": "WBT",
+    "priceBought": 518.2,
+    "priceSold": 613.7,
+    "netPrice": 95.5
+  },
+  {
+    "dateBought": "2020/08/26",
+    "dateSold": "2021/09/20",
+    "symbol": "SBR",
+    "priceBought": 447.14,
+    "priceSold": 354.29,
+    "netPrice": -92.85
+  },
+  {
+    "dateBought": "2020/07/14",
+    "dateSold": "2021/11/03",
+    "symbol": "DXN",
+    "priceBought": 519.99,
+    "priceSold": 204.28,
+    "netPrice": -315.71
+  },
+  {
+    "dateBought": "2021/01/20",
+    "dateSold": "2021/12/24",
+    "symbol": "APV",
+    "priceBought": 520,
+    "priceSold": 310.12,
+    "netPrice": -209.88
+  },
+  {
+    "dateBought": "2020/08/28",
+    "dateSold": "2021/12/24",
+    "symbol": "GED",
+    "priceBought": 511.42,
+    "priceSold": 357.71,
+    "netPrice": -153.71
+  },
+  {
+    "dateBought": "2021/01/19",
+    "dateSold": "2021/12/24",
+    "symbol": "CPH",
+    "priceBought": 538,
+    "priceSold": 166,
+    "netPrice": -372
+  },
+  {
+    "dateBought": "2021/01/19",
+    "dateSold": "2021/12/30",
+    "symbol": "SBRO",
+    "priceBought": 1780.5,
+    "priceSold": 499,
+    "netPrice": -1281.5
+  },
+  {
+    "dateBought": "2020/07/29",
+    "dateSold": null,
+    "symbol": "SO4",
+    "priceBought": 519.55,
+    "priceSold": null,
+    "netPrice": -519.55
+  },
+  {
+    "dateBought": "2020/07/27",
+    "dateSold": "2021/12/24",
+    "symbol": "BUB",
+    "priceBought": 517.94,
+    "priceSold": 231.5,
+    "netPrice": -286.44
+  },
+  {
+    "dateBought": "2020/09/15",
+    "dateSold": "2021/12/30",
+    "symbol": "BRN",
+    "priceBought": 517.76,
+    "priceSold": 562.01,
+    "netPrice": 44.25
+  },
+  {
+    "dateBought": "2020/08/20",
+    "dateSold": "2022/02/08",
+    "symbol": "PCK",
+    "priceBought": 1040,
+    "priceSold": 434.14,
+    "netPrice": -605.86
+  },
+  {
+    "dateBought": "2021/05/07",
+    "dateSold": "2022/01/11",
+    "symbol": "Z1P",
+    "priceBought": 703.98,
+    "priceSold": 363.35,
+    "netPrice": -340.63
+  },
+  {
+    "dateBought": "2022/01/24",
+    "dateSold": "2022/02/15",
+    "symbol": "FLT",
+    "priceBought": 884.5,
+    "priceSold": 1045.35,
+    "netPrice": 160.85
+  }
+ ]

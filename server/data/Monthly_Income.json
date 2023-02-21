@@ -1,0 +1,17 @@
+[
+    {
+        "job": "Tutor",
+        "account": "Cash",
+        "income": 400
+    },
+    {
+        "job": "Rent",
+        "account": "Cash",
+        "income": -1000
+    },
+    {
+        "job": "Telstra",
+        "account": "Savings",
+        "income": 4000
+    }
+]

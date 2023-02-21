@@ -1,0 +1,86 @@
+[
+    {
+        "account": "CDIA",
+        "type": "Bank",
+        "currentValue": 0.00,
+        "PL": null,
+        "initialInvestment": null
+    },
+    {
+        "account": "Daily Use",
+        "type": "Bank",
+        "currentValue": 545.35,
+        "PL": null,
+        "initialInvestment": null
+    },
+    {
+        "account": "Savings",
+        "type": "Bank",
+        "currentValue": 2910.92,
+        "PL": null,
+        "initialInvestment": null
+    },
+    {
+        "account": "Cash",
+        "type": "Bank",
+        "currentValue": 4000,
+        "PL": null,
+        "initialInvestment": null
+    },
+    {
+        "account": "Commsec",
+        "type": "Exchange",
+        "currentValue": 335.54,
+        "PL": -188.53,
+        "initialInvestment": 524.07
+    },
+    {
+        "account": "Stake",
+        "type": "Exchange",
+        "currentValue": 4726.97,
+        "PL": 572.57,
+        "initialInvestment": 4154.4
+    },
+    {
+        "account": "Stake AUS",
+        "type": "Exchange",
+        "currentValue": 2387.47,
+        "PL": 228.01,
+        "initialInvestment": 2159.46
+    },
+    {
+        "account": "Swyftx",
+        "type": "Exchange",
+        "currentValue": 7420.31,
+        "PL": -1614.53,
+        "initialInvestment": 9034.84
+    },
+    {
+        "account": "Crypto.com",
+        "type": "Exchange",
+        "currentValue": 4043.88,
+        "PL": 752.92,
+        "initialInvestment": 3290.96
+    },
+    {
+        "account": "Binance",
+        "type": "Exchange",
+        "currentValue": 1163.78,
+        "PL": -321.84,
+        "initialInvestment": 1485.62
+    },
+    {
+        "account": "Kucoin",
+        "type": "Exchange",
+        "currentValue": 798.05,
+        "PL": -201.95,
+        "initialInvestment": 1000
+    },
+    {
+        "account": "DefiKingdom",
+        "type": "Exchange",
+        "currentValue": 2176,
+        "PL": -71,
+        "initialInvestment": 2247
+    }
+]
