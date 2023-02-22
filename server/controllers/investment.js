@@ -1,48 +1,75 @@
 import ASX_Transactions from "../models/ASX_Transactions.js";
 import User from "../models/User.js";
+import { Op } from "sequelize";
 
 export const getASXTransactions = async (req, res) => {
-  try {
-    // Frontend sending {"field": "id", "sort": "desc"} as a string
-    const { page = 1, pageSize = 20, sort = null, search = "" } = req.query;
+    try {
+        // Frontend sending {"field": "id", "sort": "desc"} as a string
+        const { page = 0, pageSize = 20, sort = "[]", search = "" } = req.query;
 
-    // formatted sort should look like [["userId", "desc"]]
-    const generateSort = () => {
-      const sortParsed = JSON.parse(sort);
-      const sortFormatted = [
-        [sortParsed.field, sortParsed.sort === "asc" ? "ASC" : "DESC"],
-      ];
+        // formatted sort should look like [["userId", "desc"]]
+        const generateSort = () => {
+            const sortParsed = JSON.parse(sort);
+            let sortFormatted = [];
 
-      return sortFormatted;
-    };
-    const sortFormatted = Boolean(sort) ? generateSort() : [];
+            if (!(sortParsed.length == 0)) {
+                sortFormatted = [
+                    [
+                        sortParsed.field,
+                        sortParsed.sort === "asc" ? "ASC" : "DESC",
+                    ],
+                ];
+            }
 
-    const transactions = await ASX_Transactions.findAll({
-      where: {
-        [Op.or]: [
-          { id: { [Op.iLike]: `%${search}%` } },
-          { symbol: { [Op.iLike]: `%${search}%` } },
-        ],
-      },
-      order: sortFormatted,
-      offset: (page - 1) * pageSize,
-      limit: pageSize,
-    });
+            return sortFormatted;
+        };
 
-    // const total = await ASX_Transactions.count({
-    //   where: {
-    //     [Op.or]: [
-    //       { cost: { [Op.iLike]: `%${search}%` } },
-    //       { userId: { [Op.iLike]: `%${search}%` } },
-    //     ],
-    //   },
-    // });
+        const sortFormatted = generateSort();
+        console.log(sortFormatted);
 
-    res.status(200).json({
-      transactions,
-      //total,
-    });
-  } catch (error) {
-    res.status(404).json({ message: error.message });
-  }
+        const offset = page * pageSize;
+
+        const transactionsDB = await ASX_Transactions.findAll({
+            where: {
+                [Op.or]: [
+                    { id: { [Op.like]: `%${search}%` } },
+                    { symbol: { [Op.like]: `%${search}%` } },
+                ],
+            },
+            order: sortFormatted,
+            offset: offset,
+            limit: Number(pageSize),
+        });
+
+        // Convert transactionDB MYSQL syntax into Array of objects
+        const transactions = transactionsDB.map((transaction) => {
+            return {
+                id: transaction.dataValues.id,
+                dateBought: transaction.dataValues.dateBought,
+                dateSold: transaction.dataValues.dateSold,
+                symbol: transaction.dataValues.symbol,
+                priceBought: transaction.dataValues.priceBought,
+                priceSold: transaction.dataValues.priceSold,
+                netPrice: transaction.dataValues.netPrice,
+            };
+        });
+
+        //console.log("transactions", transactions);
+
+        const total = await ASX_Transactions.count({
+            where: {
+                [Op.or]: [
+                    { priceBought: { [Op.like]: `%${search}%` } },
+                    { id: { [Op.like]: `%${search}%` } },
+                ],
+            },
+        });
+
+        res.status(200).json({
+            transactions,
+            total,
+        });
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
 };

@@ -9,7 +9,7 @@ import morgan from "morgan";
 import investmentRoutes from "./routes/investment.js";
 import generalRoutes from "./routes/general.js";
 //import managementRoutes from "./routes/management.js";
-//import salesRoutes from "./routes/sales.js";
+import budgetRoutes from "./routes/budget.js";
 
 // Data
 import AccountsJSON from "./data/Accounts.json" assert { type: "json" };
@@ -37,11 +37,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-/* ROUTES */ // Pages
+/* ROUTES */
 app.use("/investment", investmentRoutes);
 app.use("/general", generalRoutes);
 // app.use("/management", managementRoutes);
-// app.use("/sales", salesRoutes);
+app.use("/budget", budgetRoutes);
 
 /* MySQL SETUP */
 const PORT = process.env.PORT || 9000;

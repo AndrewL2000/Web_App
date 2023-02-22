@@ -8,6 +8,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "scenes/dashboard";
 import Layout from "scenes/layout";
 import ASXTransactions from "scenes/asxTransactions";
+import MonthlySpending from "scenes/monthlySpending";
 
 function App() {
     const mode = useSelector((state) => state.global.mode);
@@ -22,6 +23,7 @@ function App() {
                             <Route path='/' element={<Navigate to='/dashboard' replace />} />
                             <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/asx" element={<ASXTransactions />} />
+                            <Route path="/monthly-spending" element={<MonthlySpending />} />
                         </Route>
                     </Routes>
                 </ThemeProvider>

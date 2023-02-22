@@ -11,7 +11,7 @@ const ASXTransactions = () => {
     // values to be sent to the backend
     const [page, setPage] = useState(0);
     const [pageSize, setPageSize] = useState(20);
-    const [sort, setSort] = useState({});
+    const [sort, setSort] = useState([]);
     const [search, setSearch] = useState("");
 
     const [searchInput, setSearchInput] = useState("");
@@ -22,12 +22,12 @@ const ASXTransactions = () => {
         search,
     });
 
-    console.log(data)
+    console.log("dataScenes", data);
 
     const columns = [
         {
-            field: "id",
-            headerName: "ID",
+            field: "symbol",
+            headerName: "Symbol",
             flex: 1,
         },
         {
@@ -38,11 +38,6 @@ const ASXTransactions = () => {
         {
             field: "dateSold",
             headerName: "Date Sold",
-            flex: 1,
-        },
-        {
-            field: "createdAt",
-            headerName: "CreatedAt",
             flex: 1,
         },
         {
@@ -68,8 +63,8 @@ const ASXTransactions = () => {
     return (
         <Box m="1.5rem 2.5rem">
             <Header
-                title="ASXTransaction"
-                subtitle="Entire list of ASXTransactions"
+                title="ASX Transactions"
+                subtitle="Entire list of ASX Transactions"
             />
             <Box
                 height="80vh"
@@ -100,7 +95,7 @@ const ASXTransactions = () => {
             >
                 <DataGrid
                     loading={isLoading || !data}
-                    getRowId={(row) => row._id}
+                    getRowId={(row) => row.id}
                     rows={(data && data.transactions) || []}
                     columns={columns}
                     rowCount={(data && data.total) || 0}

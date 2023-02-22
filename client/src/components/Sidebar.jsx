@@ -38,58 +38,72 @@ import profileImage from "assets/LuzerkerLogo.PNG";
 const navItems = [
     {
         text: "Dashboard",
+        url: "dashboard",
         icon: <HomeOutlined />,
     },
     {
         text: "Investments",
+        url: "investments",
         icon: null,
     },
     {
         text: "Products",
+        url: "products",
         icon: <ShoppingCartOutlined />,
     },
     {
         text: "Customers",
+        url: "customers",
         icon: <Groups2Outlined />,
     },
     {
         text: "ASX",
+        url: "asx",
         icon: <ReceiptLongOutlined />,
     },
     {
         text: "Geography",
+        url: "geography",
         icon: <PublicOutlined />,
     },
     {
         text: "Sales",
+        url: "sales",
         icon: null,
     },
     {
         text: "Overview",
+        url: "overview",
         icon: <PointOfSaleOutlined />,
     },
     {
         text: "Daily",
+        url: "daily",
         icon: <TodayOutlined />,
     },
     {
         text: "Monthly",
+        url: "monthly-spending",
         icon: <CalendarMonthOutlined />,
     },
     {
         text: "Breakdown",
+        url: "breakdown",
         icon: <PieChartOutlined />,
     },
     {
         text: "Management",
+        url: "management",
         icon: null,
     },
     {
         text: "Admin",
+        url: "admin",
         icon: <AdminPanelSettingsOutlined />,
     },
     {
         text: "Performance",
+        url: "performance",
         icon: <TrendingUpOutlined />,
     },
 ];
@@ -153,7 +167,7 @@ const Sidebar = ({
                             </FlexBetween>
                         </Box>
                         <List>
-                            {navItems.map(({ text, icon }) => {
+                            {navItems.map(({ text, url, icon }) => {
                                 if (!icon) {
                                     return (
                                         <Typography
@@ -164,7 +178,7 @@ const Sidebar = ({
                                         </Typography>
                                     );
                                 }
-                                const lcText = text.toLowerCase();
+                                const lcText = url.toLowerCase();   // URL
 
                                 return (
                                     <ListItem key={text} disablePadding>
