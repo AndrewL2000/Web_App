@@ -46,22 +46,21 @@ const ASX_Transactions = sequelize.define(
         timestamps: true,
         hooks: {
             afterBulkCreate: (transactions, options) => {
-                transactions.forEach((transaction) => {
+                transactions.forEach(async (transaction) => {
                     if (transaction.priceBought && transaction.priceSold) {
                         transaction.netPrice =
-                            transaction.priceSold - transaction.priceBought;
-                    }
-                });
-            
-            },
-            afterUpdate: (transactions, options) => {
-                transactions.forEach((transaction) => {
-                    if (transaction.priceBought && transaction.priceSold) {
-                        transaction.netPrice =
-                            transaction.priceSold - transaction.priceBought;
+                            transaction.priceSold - transaction.priceBought + 1;
                     }
                 });
             },
+            // afterUpdate: (transactions, options) => {
+            //     transactions.forEach((transaction) => {
+            //         if (transaction.priceBought && transaction.priceSold) {
+            //             transaction.netPrice =
+            //                 transaction.priceSold - transaction.priceBought;
+            //         }
+            //     });
+            // },
         },
     }
 );

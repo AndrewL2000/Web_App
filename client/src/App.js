@@ -9,6 +9,7 @@ import Dashboard from "scenes/dashboard";
 import Layout from "scenes/layout";
 import ASXTransactions from "scenes/asxTransactions";
 import MonthlySpending from "scenes/monthlySpending";
+import Line from "scenes/line";
 
 function App() {
     const mode = useSelector((state) => state.global.mode);
@@ -23,7 +24,7 @@ function App() {
                             <Route path='/' element={<Navigate to='/dashboard' replace />} />
                             <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/asx" element={<ASXTransactions />} />
-                            <Route path="/monthly-spending" element={<MonthlySpending />} />
+                            <Route path="/monthly-spending" element={<Line />} />
                         </Route>
                     </Routes>
                 </ThemeProvider>

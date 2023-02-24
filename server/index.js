@@ -71,8 +71,9 @@ sequelize
         await User.sync();
         await ASX_Transactions.sync();
 
-        // ASX_Transactions.destroy({ truncate: true });
-        // ASX_Transactions.bulkCreate(ASX_TransactionsJSON);
+        ASX_Transactions.destroy({ truncate: true });
+        ASX_Transactions.bulkCreate(ASX_TransactionsJSON);
+        
         // User.destroy({ truncate: true });
         // User.bulkCreate(UsersJSON);
         // Monthly_Spending.destroy({ truncate: true });
