@@ -2,47 +2,47 @@ import React, { useMemo } from "react";
 import { Box, useTheme } from "@mui/material";
 import Header from "components/Header";
 import { ResponsiveLine } from "@nivo/line";
-import { useGetSalesQuery } from "state/api";
+import { useGetMonthlySpendingQuery } from "state/api";
 
 const Monthly = () => {
-    const { data } = useGetSalesQuery();
+    const { data, isLoading } = useGetMonthlySpendingQuery();
+
     const theme = useTheme();
 
     const [formattedData] = useMemo(() => {
         if (!data) return [];
 
-        const { monthlyData } = data;
-        const totalSalesLine = {
-            id: "totalSales",
-            color: theme.palette.secondary.main,
+        const monthlySpendingLine = {
+            id: "monthlySpending",
+            color: theme.palette.graphs[100],
             data: [],
         };
-        const totalUnitsLine = {
-            id: "totalUnits",
-            color: theme.palette.secondary[600],
+        const monthlyIncomingLine = {
+            id: "monthlyIncoming",
+            color: theme.palette.graphs[500],
             data: [],
         };
 
-        Object.values(monthlyData).forEach(
-            ({ month, totalSales, totalUnits }) => {
-                totalSalesLine.data = [
-                    ...totalSalesLine.data,
-                    { x: month, y: totalSales },
-                ];
-                totalUnitsLine.data = [
-                    ...totalUnitsLine.data,
-                    { x: month, y: totalUnits },
-                ];
-            }
-        );
+        Object.values(data).forEach(({ date, incoming, outgoing }) => {
+            monthlySpendingLine.data = [
+                ...monthlySpendingLine.data,
+                { x: date, y: outgoing },
+            ];
+            monthlyIncomingLine.data = [
+                ...monthlyIncomingLine.data,
+                { x: date, y: incoming },
+            ];
+        });
 
-        const formattedData = [totalSalesLine, totalUnitsLine];
+        const formattedData = [monthlySpendingLine, monthlyIncomingLine];
         return [formattedData];
     }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
 
+    if (!data || isLoading) return "Loading...";
+
     return (
         <Box m="1.5rem 2.5rem">
-            <Header title="MONTHLY SALES" subtitle="Chart of monthlysales" />
+            <Header title="Monthly Bank Transactions" />
             <Box height="75vh">
                 {data ? (
                     <ResponsiveLine

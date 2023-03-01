@@ -33,17 +33,29 @@ const Accounts = sequelize.define(
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
-        PL: {
+        initialInvestment: {
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
-        initialInvestment: {
+        PL: {
             type: DataTypes.DECIMAL,
             allowNull: true,
         },
     },
     {
         timestamps: true,
+        hooks: {
+            // afterBulkUpdate: async (accounts, options) => {
+            //     // console.log(accounts.attributes)
+            //     const id = accounts.where.id
+            //     const currentValue = accounts.attributes.currentValue;
+            //     const initialInvestment = accounts.attributes.initialInvestment;
+            //     const data = {
+            //         PL: currentValue - initialInvestment,
+            //     };
+            //     await Accounts.update(data, { where: { id: id } }, { hooks: false });
+            // },
+        },
     }
 );
 

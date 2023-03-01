@@ -30,13 +30,16 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
     const [anchorEl, setAnchorEl] = useState(null);
     const isOpen = Boolean(anchorEl);
-    const handleClick = (event) => {setAnchorEl(event.currentTarget)};
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
     const handleClose = () => setAnchorEl(null);
 
     return (
         <AppBar
             sx={{ position: "static", background: "none", boxShadow: "none" }}
         >
+            {/* space-between: creates as much space between boxes on both the left and right */}
             <Toolbar sx={{ justifyContent: "space-between" }}>
                 {/* LEFT SIDE */}
                 <FlexBetween>
@@ -57,6 +60,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
                         </IconButton>
                     </FlexBetween>
                 </FlexBetween>
+                
 
                 {/* RIGHT SIDE */}
                 <FlexBetween gap="1.5rem">

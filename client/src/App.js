@@ -10,6 +10,7 @@ import Layout from "scenes/layout";
 import ASXTransactions from "scenes/asxTransactions";
 import MonthlySpending from "scenes/monthlySpending";
 import Line from "scenes/line";
+import Accounts from "scenes/accounts";
 
 function App() {
     const mode = useSelector((state) => state.global.mode);
@@ -25,6 +26,7 @@ function App() {
                             <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/asx" element={<ASXTransactions />} />
                             <Route path="/monthly-spending" element={<Line />} />
+                            <Route path="/accounts" element={<Accounts />} />
                         </Route>
                     </Routes>
                 </ThemeProvider>

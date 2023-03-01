@@ -18,7 +18,6 @@ import {
     ChevronLeft,
     ChevronRightOutlined,
     HomeOutlined,
-    ShoppingCartOutlined,
     Groups2Outlined,
     ReceiptLongOutlined,
     PublicOutlined,
@@ -28,6 +27,7 @@ import {
     AdminPanelSettingsOutlined,
     TrendingUpOutlined,
     PieChartOutlined,
+    AccountBalanceWalletOutlined,
 } from "@mui/icons-material";
 
 import { useEffect, useState } from "react";
@@ -47,9 +47,9 @@ const navItems = [
         icon: null,
     },
     {
-        text: "Products",
-        url: "products",
-        icon: <ShoppingCartOutlined />,
+        text: "Accounts",
+        url: "accounts",
+        icon: <AccountBalanceWalletOutlined />,
     },
     {
         text: "Customers",
@@ -178,7 +178,7 @@ const Sidebar = ({
                                         </Typography>
                                     );
                                 }
-                                const lcText = url.toLowerCase();   // URL
+                                const lcText = url.toLowerCase(); // URL
 
                                 return (
                                     <ListItem key={text} disablePadding>

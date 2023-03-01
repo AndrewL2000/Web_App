@@ -4,7 +4,8 @@ import { Op } from "sequelize";
 
 export const getMonthlySpending = async (req, res) => {
     try {
-        res.status(200).json(req.body);
+        const allMonthlySpending = await Monthly_Spending.findAll();
+        res.status(200).json(allMonthlySpending);
     } catch (error) {
         res.status(404).json({ message: error.message });
     }

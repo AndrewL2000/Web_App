@@ -24,6 +24,7 @@ import Monthly_Income from "./models/Monthly_Income.js";
 import Monthly_Spending from "./models/Monthly_Spending.js";
 import ASX_Transactions from "./models/ASX_Transactions.js";
 import Accounts from "./models/Accounts.js";
+import ToDoList from "./models/ToDoList.js";
 
 /* CONFIGURATION */
 dotenv.config();
@@ -61,8 +62,8 @@ const sequelize = new Sequelize(
 sequelize
     .authenticate()
     .then(async () => {
-        console.log("Connection has been established successfully");
-        app.listen(PORT, () => console.log(`Server is listening on ${PORT}`));
+        console.log("\nConnection has been established successfully");
+        app.listen(PORT, () => console.log(`Server is listening on ${PORT}\n`));
 
         // Create the table if it doesn't exist
         await Monthly_Income.sync();
@@ -70,10 +71,11 @@ sequelize
         await Accounts.sync();
         await User.sync();
         await ASX_Transactions.sync();
+        await ToDoList.sync();
 
-        ASX_Transactions.destroy({ truncate: true });
-        ASX_Transactions.bulkCreate(ASX_TransactionsJSON);
-        
+        // ASX_Transactions.destroy({ truncate: true });
+        // ASX_Transactions.bulkCreate(ASX_TransactionsJSON);
+
         // User.destroy({ truncate: true });
         // User.bulkCreate(UsersJSON);
         // Monthly_Spending.destroy({ truncate: true });

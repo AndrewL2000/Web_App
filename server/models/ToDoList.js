@@ -12,26 +12,17 @@ const sequelize = new Sequelize(
     }
 );
 
-const Monthly_Income = sequelize.define(
-    "Monthly_Income",
+const ToDoList = sequelize.define(
+    "ToDoList",
     {
         id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             primaryKey: true,
-            autoIncrement: true,
         },
-        job: {
+        text: {
             type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-        },
-        account: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        income: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
+            allowNull: true,
+            unique: false,
         },
     },
     {
@@ -40,4 +31,4 @@ const Monthly_Income = sequelize.define(
     }
 );
 
-export default Monthly_Income;
+export default ToDoList;

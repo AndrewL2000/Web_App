@@ -10,7 +10,7 @@ export const api = createApi({
         "Customers",
         "ASXTransactions",
         "Geography",
-        "Sales",
+        "MonthlySpending",
         "Admins",
         "Performance",
         "Dashboard",
@@ -20,6 +20,14 @@ export const api = createApi({
         getUser: build.query({
             query: (id) => `general/user/${id}`,
             providesTags: ["User"],
+        }),
+        getAccounts: build.query({
+            query: ({ sort, search }) => ({
+                url: "investment/accounts",
+                method: "GET",
+                params: { sort, search },
+            }),
+            providesTags: ["Accounts"],
         }),
         getProducts: build.query({
             query: () => "investment/products",
@@ -41,9 +49,9 @@ export const api = createApi({
             query: () => "investment/geography",
             providesTags: ["Geography"],
         }),
-        getSales: build.query({
-            query: () => "budget/sales",
-            providesTags: ["Sales"],
+        getMonthlySpending: build.query({
+            query: () => "budget/monthly-spending",
+            providesTags: ["MonthlySpending"],
         }),
         getAdmins: build.query({
             query: () => "management/admins",
@@ -57,17 +65,29 @@ export const api = createApi({
             query: () => "general/dashboard",
             providesTags: ["Dashboard"],
         }),
+
+        mutateAccounts: build.mutation({
+            query: ({ id, data, method }) => ({
+                url: `investment/accounts/${id}`,
+                method: method,
+                body: data,
+                params: { id }
+            }),
+            invalidatesTags: ["Accounts"],
+        }),
     }),
 });
 
 export const {
     useGetUserQuery,
+    useGetAccountsQuery,
     useGetProductsQuery,
     useGetCustomersQuery,
     useGetASXTransactionsQuery,
     useGetGeographyQuery,
-    useGetSalesQuery,
+    useGetMonthlySpendingQuery,
     useGetAdminsQuery,
     useGetUserPerformanceQuery,
     useGetDashboardQuery,
+    useMutateAccountsMutation,
 } = api;

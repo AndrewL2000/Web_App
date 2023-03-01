@@ -22,8 +22,6 @@ const ASXTransactions = () => {
         search,
     });
 
-    console.log("dataScenes", data);
-
     const columns = [
         {
             field: "symbol",
@@ -44,6 +42,7 @@ const ASXTransactions = () => {
             field: "priceBought",
             headerName: "Bought",
             flex: 1,
+            editable: true,
             renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
         },
         {
@@ -114,6 +113,7 @@ const ASXTransactions = () => {
                     componentsProps={{
                         toolbar: { searchInput, setSearchInput, setSearch },
                     }}
+                    editable={true}
                 />
             </Box>
         </Box>
