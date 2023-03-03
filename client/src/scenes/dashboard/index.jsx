@@ -20,38 +20,12 @@ import { DataGrid } from "@mui/x-data-grid";
 import AccountsPieChart from "components/AccountsPieChart";
 
 import ToDoList from "components/ToDoList";
-import AddTodo from "components/AddToDo";
 import { v4 as uuidv4 } from "uuid";
 
 const Dashboard = () => {
     const theme = useTheme();
     const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
 
-    const [todos, setTodos] = useState([]);
-
-    const handleAddTodo = (newTodo) => {
-        setTodos([
-            ...todos,
-            { id: uuidv4(), text: newTodo.text, completed: false },
-        ]);
-    };
-
-    const handleToggleTodo = (todoToToggle) => {
-        const updatedTodos = todos.map((todo) => {
-            if (todo.id === todoToToggle.id) {
-                return { ...todo, completed: !todo.completed };
-            }
-            return todo;
-        });
-        setTodos(updatedTodos);
-    };
-
-    const handleDeleteTodo = (todoToDelete) => {
-        const filteredTodos = todos.filter(
-            (todo) => todo.id !== todoToDelete.id
-        );
-        setTodos(filteredTodos);
-    };
     return (
         <Box m="1.5rem 2.5rem">
             <FlexBetween>
@@ -62,14 +36,7 @@ const Dashboard = () => {
             </FlexBetween>
 
             <Box position="absolute" right="20px" mt="20px" width="20%">
-                <Container maxWidth="sm">
-                    <AddTodo onAdd={handleAddTodo} />
-                    <ToDoList
-                        todos={todos}
-                        onToggle={handleToggleTodo}
-                        onDelete={handleDeleteTodo}
-                    />
-                </Container>
+                <ToDoList />
             </Box>
 
             {/* ROW 1 */}

@@ -49,7 +49,7 @@ const AccountsPieChart = ({ isDashboard = false }) => {
 
     return (
         <Box
-            height={isDashboard ? "400px" : "100%"}
+            height={isDashboard ? "400px" : "1000px"}
             width={undefined}
             minHeight={isDashboard ? "325px" : undefined}
             minWidth={isDashboard ? "325px" : undefined}

@@ -22,7 +22,14 @@ const ToDoList = sequelize.define(
         text: {
             type: DataTypes.STRING,
             allowNull: true,
-            unique: false,
+        },
+        completed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+        },
+        order: {
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
         },
     },
     {

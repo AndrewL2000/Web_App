@@ -11,6 +11,8 @@ import ASXTransactions from "scenes/asxTransactions";
 import MonthlySpending from "scenes/monthlySpending";
 import Line from "scenes/line";
 import Accounts from "scenes/accounts";
+import Binance from "scenes/binance";
+import CoinSpot from "scenes/coinspot";
 
 function App() {
     const mode = useSelector((state) => state.global.mode);
@@ -27,6 +29,8 @@ function App() {
                             <Route path="/asx" element={<ASXTransactions />} />
                             <Route path="/monthly-spending" element={<Line />} />
                             <Route path="/accounts" element={<Accounts />} />
+                            <Route path="/binance" element={<Binance />} />
+                            <Route path="/coinspot" element={< CoinSpot/>} />
                         </Route>
                     </Routes>
                 </ThemeProvider>

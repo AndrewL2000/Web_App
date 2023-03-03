@@ -2,6 +2,7 @@ import ASX_Transactions from "../models/ASX_Transactions.js";
 import Accounts from "../models/Accounts.js";
 import User from "../models/User.js";
 import { Op } from "sequelize";
+import { Spot } from "@binance/connector";
 
 export const getASXTransactions = async (req, res) => {
     try {
@@ -145,3 +146,74 @@ export const updateAccounts = async (req, res) => {
         res.status(404).json({ message: error.message });
     }
 };
+
+const client = new Spot(process.env.BINANCE_API, process.env.BINANCE_SECRET, {
+    timeout: 1000,
+});
+
+const getTickerPrice = async (ticker) => {
+    try {
+        let tickerPrice;
+        if (ticker === "USDT") {
+            tickerPrice = 1;
+            return tickerPrice;
+        }
+        const response = await client.tickerPrice(`${ticker}USDT`);
+        tickerPrice = response.data.price;
+        return tickerPrice;
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }
+    }
+};
+
+export const getBinanceMarginAccount = async (req, res) => {
+    try {
+        let btcPrice;
+        client.tickerPrice("BTCUSDT").then((response) => {
+            btcPrice = response.data.price;
+        });
+
+        const { data: marginAccount } = await client.marginAccount();
+
+        const marginAssets = await Promise.all(
+            marginAccount.userAssets
+                .filter((asset) => asset.netAsset !== "0")
+                .map(async (asset) => {
+                    const tickerPrice = Number(
+                        await getTickerPrice(asset.asset)
+                    );
+                    return {
+                        ...asset,
+                        freeUSDT: Number(asset.free) * tickerPrice,
+                        netAssetUSDT: Number(asset.netAsset) * tickerPrice,
+                    };
+                })
+        );
+
+        console.log(marginAccount);
+        const marginAccountInfo = {
+            marginLevel: Number(marginAccount.marginLevel),
+            marginAccountValueUSDT: Number(marginAccount.totalAssetOfBtc) * Number(btcPrice),
+            marginLiabilityUSDT: Number(marginAccount.totalLiabilityOfBtc) * Number(btcPrice),
+            marginNetAccountValueUSDT: Number(marginAccount.totalNetAssetOfBtc) * Number(btcPrice),
+            marginAssets: await Promise.all(marginAssets), // Resolves multiple promises concurrently
+        };
+
+        // client
+        //     .marginMyTrades("AGIXUSDT")
+        //     .then((response) => client.logger.log(response.data))
+        //     .catch((error) => client.logger.error(error));
+
+        res.status(200).json(marginAccountInfo);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+};
+
+export const getBinanceMarginClosedTrades = async (req, res) => {};
+
+export const getBinanceMarginOpenTrades = async (req, res) => {};

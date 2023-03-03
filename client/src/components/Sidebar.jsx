@@ -18,9 +18,9 @@ import {
     ChevronLeft,
     ChevronRightOutlined,
     HomeOutlined,
-    Groups2Outlined,
+    CurrencyBitcoinOutlined,
     ReceiptLongOutlined,
-    PublicOutlined,
+    RocketLaunchOutlined,
     PointOfSaleOutlined,
     TodayOutlined,
     CalendarMonthOutlined,
@@ -28,6 +28,7 @@ import {
     TrendingUpOutlined,
     PieChartOutlined,
     AccountBalanceWalletOutlined,
+    AccountBalanceOutlined,
 } from "@mui/icons-material";
 
 import { useEffect, useState } from "react";
@@ -52,23 +53,29 @@ const navItems = [
         icon: <AccountBalanceWalletOutlined />,
     },
     {
-        text: "Customers",
-        url: "customers",
-        icon: <Groups2Outlined />,
-    },
-    {
         text: "ASX",
         url: "asx",
         icon: <ReceiptLongOutlined />,
     },
     {
-        text: "Geography",
-        url: "geography",
-        icon: <PublicOutlined />,
+        text: "Bank",
+        url: "bank",
+        icon: <AccountBalanceOutlined />,
     },
     {
-        text: "Sales",
-        url: "sales",
+        text: "Binance",
+        url: "binance",
+        icon: <CurrencyBitcoinOutlined />,
+    },
+
+    {
+        text: "CoinSpot",
+        url: "coinspot",
+        icon: <RocketLaunchOutlined />,
+    },
+    {
+        text: "Budget",
+        url: "budget",
         icon: null,
     },
     {

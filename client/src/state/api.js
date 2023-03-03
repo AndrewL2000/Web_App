@@ -14,6 +14,8 @@ export const api = createApi({
         "Admins",
         "Performance",
         "Dashboard",
+        "ToDoList",
+        "Binance",
     ],
     // API CALLS
     endpoints: (build) => ({
@@ -66,12 +68,43 @@ export const api = createApi({
             providesTags: ["Dashboard"],
         }),
 
+        getToDoList: build.query({
+            query: () => "general/todolist",
+            providesTags: ["ToDoList"],
+        }),
+        getBinance: build.query({
+            query: ({ endpoint }) => ({
+                url: `investment/binance/${endpoint}`,
+                method: "GET",
+            }),
+            providesTags: ["Binance"],
+        }),
+
+        mutateBinance: build.mutation({
+            query: ({ endpoint, data }) => ({
+                url: `investment/binance/${endpoint}`,
+                method: "POST",
+                body: data,
+            }),
+            providesTags: ["Binance"],
+        }),
+
+        mutateToDoList: build.mutation({
+            query: ({ id, data, method }) => ({
+                url: `general/todolist/${id}`,
+                method: method,
+                body: data,
+                params: { id },
+            }),
+            invalidatesTags: ["ToDoList"],
+        }),
+
         mutateAccounts: build.mutation({
             query: ({ id, data, method }) => ({
                 url: `investment/accounts/${id}`,
                 method: method,
                 body: data,
-                params: { id }
+                params: { id },
             }),
             invalidatesTags: ["Accounts"],
         }),
@@ -90,4 +123,8 @@ export const {
     useGetUserPerformanceQuery,
     useGetDashboardQuery,
     useMutateAccountsMutation,
+    useGetToDoListQuery,
+    useMutateToDoListMutation,
+    useGetBinanceQuery,
+    useMutateBinanceMutation,
 } = api;

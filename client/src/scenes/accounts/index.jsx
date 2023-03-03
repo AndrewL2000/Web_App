@@ -18,6 +18,7 @@ import {
     CancelOutlined,
 } from "@mui/icons-material";
 import { v4 as uuidv4 } from "uuid";
+import AccountsPieChart from "components/AccountsPieChart";
 
 function EditToolbar(props) {
     const { rows, setRows, setRowModesModel } = props;
@@ -29,8 +30,8 @@ function EditToolbar(props) {
             account: "",
             type: "",
             currentValue: 0,
-            initialInvestment: 0,
-            PL: 0,
+            initialInvestment: null,
+            PL: null,
             isNew: true,
         };
         setRows((oldRows) => [...oldRows, data]);
@@ -139,7 +140,15 @@ const Accounts = () => {
         }
         // Updates the row
         let updatedRow = { ...newRow, isNew: false };
-        updatedRow.PL = updatedRow.currentValue - updatedRow.initialInvestment;
+        if (
+            updatedRow.initialInvestment === null ||
+            updatedRow.initialInvestment === ""
+        ) {
+            updatedRow.PL = null;
+        } else {
+            updatedRow.PL =
+                updatedRow.currentValue - updatedRow.initialInvestment;
+        }
         setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
         accountsMutation({
             id: updatedRow.id,
@@ -299,6 +308,9 @@ const Accounts = () => {
                     onRowEditStop={handleRowEditStop}
                     processRowUpdate={processRowUpdate}
                 />
+            </Box>
+            <Box mt="10vh">
+                <AccountsPieChart isDashboard={false} />
             </Box>
         </Box>
     );
