@@ -16,6 +16,7 @@ export const api = createApi({
         "Dashboard",
         "ToDoList",
         "Binance",
+        "Bank",
     ],
     // API CALLS
     endpoints: (build) => ({
@@ -78,6 +79,13 @@ export const api = createApi({
                 method: "GET",
             }),
             providesTags: ["Binance"],
+        }),
+        getBank: build.query({
+            query: ({ endpoint }) => ({
+                url: `investment/bank/${endpoint}`,
+                method: "GET",
+            }),
+            providesTags: ["Bank"],
         }),
 
         mutateBinance: build.mutation({

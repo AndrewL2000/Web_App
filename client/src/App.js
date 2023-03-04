@@ -13,6 +13,7 @@ import Line from "scenes/line";
 import Accounts from "scenes/accounts";
 import Binance from "scenes/binance";
 import CoinSpot from "scenes/coinspot";
+import Bank from "scenes/bank";
 
 function App() {
     const mode = useSelector((state) => state.global.mode);
@@ -23,7 +24,7 @@ function App() {
                 <ThemeProvider theme={theme}>
                     <CssBaseline />
                     <Routes>
-                        <Route element={<Layout />}>
+                        <Route element={<Layout />}>    
                             <Route path='/' element={<Navigate to='/dashboard' replace />} />
                             <Route path="/dashboard" element={<Dashboard />} />
                             <Route path="/asx" element={<ASXTransactions />} />
@@ -31,6 +32,7 @@ function App() {
                             <Route path="/accounts" element={<Accounts />} />
                             <Route path="/binance" element={<Binance />} />
                             <Route path="/coinspot" element={< CoinSpot/>} />
+                            <Route path="/bank" element={< Bank/>} />
                         </Route>
                     </Routes>
                 </ThemeProvider>
